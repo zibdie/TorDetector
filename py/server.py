@@ -2,6 +2,7 @@ from flask import Flask, render_template, send_from_directory, jsonify, request
 import os
 #How to render a directory with both static/dynamic files in - Use this settings for React Projects
 app = Flask(__name__, static_folder='templates/', static_url_path='')
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = -1
 import werkzeug
 import socket
 import re
