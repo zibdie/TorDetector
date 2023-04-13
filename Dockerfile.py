@@ -9,7 +9,7 @@ COPY ./static_page/ /app/
 RUN npm install && npm run build
 
 #Release stage
-FROM python:alpine
+FROM python:3.7-alpine
 
 WORKDIR /usr/src/app
 COPY ./py/requirements.txt ./

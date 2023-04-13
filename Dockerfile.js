@@ -9,7 +9,7 @@ COPY ./static_page/ /app/
 RUN npm install && npm run build
 
 #Release Stage
-FROM node:alpine
+FROM node:12-alpine
 WORKDIR /app
 COPY ./js/ .
 COPY --from=builder /app/build/ /app/static/
