@@ -16,9 +16,9 @@ jobs:
     strategy:
       matrix:
         version:
-          - { language: "js", dockerfile: "Dockerfile.js", tag: "myuser/tordetector:js" }
-          - { language: "py", dockerfile: "Dockerfile.py", tag: "myuser/tordetector:py" }
-          - { language: "php", dockerfile: "Dockerfile.php", tag: "myuser/tordetector:php" }
+          - { language: "js", dockerfile: "Dockerfile.js", tag: "zibdie/tordetector:js" }
+          - { language: "py", dockerfile: "Dockerfile.py", tag: "zibdie/tordetector:py" }
+          - { language: "php", dockerfile: "Dockerfile.php", tag: "zibdie/tordetector:php" }
     steps:
       - name: Checkout
         uses: actions/checkout@v3
