@@ -28,21 +28,31 @@ Another goal was to get a dive into ReactJS. This is my first project using Reac
 
 Each folder has a name of a language the backend was written in (for example, the 'js' folder has the backend written in NodeJS and so on). Inside each folder is a .env file which has a path to configure the API endpoint (However, if you use the Docker configuration, you will not need to concern yourself with the .env file)
 
-### Docker
+## Docker
 
 It is highly recommended you deploy using Docker as the project & setup was designed and tested using Docker. As long as you have Docker installed, no extra dependancies will need to be installed as everything will run inside the container. 
 
+### From DockerHub
+
+First, check the tags avaliable from the DockerHub page [here](https://hub.docker.com/r/zibdie/tordetector) .
+
+Then just pull and run. For example, if you want to run the Python version, then run the command below:
+```
+docker pull zibdie/tordetector:py && docker run -p 5000:5000 zibdie/tordetector:py
+```
+
+### Cloning and Building Locally
+
 1. Select the language you wish to choose
-2. Rename the 'Dockerfile.(language extension)' to just 'Dockerfile'. For example, if you wish to use the NodeJS version, rename 'Dockerfile.js' to 'Dockerfile'
-3. Open up the 'Dockerfile' you just renamed and check that all environment variables are as you expect (for example, you would like the container to expose on port 5000)
-4. Open up the Terminal/CMD, navigate to the directory the repo is in, and type:
+2. Open up the 'Dockerfile' you wish and check that all environment variables are as you expect (for example, you would like the container to expose on port 5000)
+3. Open up the Terminal/CMD, navigate to the directory the repo is in, and type:
 
 ```
-docker container build -t tor_detector .
+docker build -t tor_detector -f Dockerfile.<version> .
 ```
 After it has been built, type:
 ```
-docker container run tor_detector
+docker run -p 5000:5000 tor_detector
 ```
 
 5. Finally, open up a browser and visit the website
@@ -59,17 +69,6 @@ docker inspect <container ID of 'tor_detector'>
 
 The IP address will be towards the bottom.
 
-### Manually
+## Manually
 
 If you wish to set up manually, you must configure your environment to work with the files. Since your environment may vary, you should open the Dockerfile of your specified language and see what get's added/changed.
-
-# Live Demo
-
-If you wish to see a live demo, you can click on picture below
-
-[![Live Demo](https://i.imgur.com/GWuxoac.png)](https://redirct.page.link/TorDetectorLive)
-
-Or type/copy and paste this URL below
-```
-https://redirct.page.link/TorDetectorLive
-```
